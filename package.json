@@ -1,0 +1,9 @@
+{
+    "name": "gatsby-source-cloudflare-workers-kv",
+    "version": "1.0.0",
+    "private": false,
+    "author": "Alex Crocker <hello@crock.dev>",
+    "dependencies": {
+        "axios": "^0.21.1"
+    }
+}
