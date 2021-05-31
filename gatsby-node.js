@@ -1,8 +1,9 @@
 const axios = require("axios")
+const atob = require("atob")
 
 exports.sourceNodes = async (
 	{ actions, reporter, createNodeId, createContentDigest },
-	{ accountId, namespaceId, apiToken, email, uniqueKey, typeName }
+	{ accountId, namespaceId, apiToken, email, uniqueKey = "id", typeName, isBase64Encoded = false }
 ) => {
 	const { createNode } = actions
 
@@ -63,14 +64,13 @@ exports.sourceNodes = async (
 			if (listing.status !== 200) return
 
 			const { value, metadata, ...other } = listing.data
-			const obj = JSON.parse(value)
-
+			const obj = isBase64Encoded ? JSON.parse(atob(value)) : JSON.parse(value)
 			const meta = JSON.parse(metadata)
 
 			const attributes = { ...obj, ...meta, ...other }
 
 			createNode({
-				id: createNodeId(obj[uniqueKey || "id"]),
+				id: createNodeId(obj[uniqueKey]),
 				parent: null,
 				children: [],
 				internal: {

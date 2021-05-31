@@ -1,4 +1,4 @@
-# Cloudflare Workers KV - Gstsby Source Plugin
+# Cloudflare Workers KV - Gatsby Source Plugin
 
 ## Usage
 
@@ -13,8 +13,9 @@ module.exports = {
                 namespaceId: ``,
                 apiToken: ``,
                 email: ``,
+                isBase64Encoded: false, // defaults to false
                 uniqueKey: ``, // Defaults to "id"
-                typeName: `` // This is the generated GraphQL type
+                typeName: ``,
             }
         },
         ...

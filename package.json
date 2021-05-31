@@ -1,9 +1,10 @@
 {
     "name": "gatsby-source-cloudflare-workers-kv",
-    "version": "1.0.2",
+    "version": "1.0.3",
     "private": false,
     "author": "Alex Crocker <hello@crock.dev>",
     "dependencies": {
+        "atob": "^2.1.2",
         "axios": "^0.21.1"
     },
     "keywords": [
@@ -16,7 +17,7 @@
     ],
     "license": "MIT",
     "repository": {
-        "type" : "git",
-        "url" : "https://github.com/crock/gatsby-source-cloudflare-workers-kv.git"
+        "type": "git",
+        "url": "https://github.com/crock/gatsby-source-cloudflare-workers-kv.git"
     }
 }
